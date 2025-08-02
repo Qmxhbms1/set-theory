@@ -50,7 +50,7 @@
 
 % Problem 1.4
 \begin{problem}
-  If $X$ is inductive, then the set $\{x \in X : x \text{is transitive}\}$ is inductive.
+  If $X$ is inductive, then the set $\{x \in X : x \text{ is transitive}\}$ is inductive.
   Hence every $n \in N$ is transitive.
 \end{problem}
 
@@ -68,7 +68,7 @@
 
 % Problem 1.5
 \begin{problem}
-  If $X$ is inductive, then the set $\{x \in X : x \text{is transitive and} x \notin x\}$ is inductive.
+  If $X$ is inductive, then the set $\{x \in X : x \text{ is transitive and } x \notin x\}$ is inductive.
   Hence $n \notin n$ and $n \neq n + 1$ for each $n \in N$.
 \end{problem}
 
@@ -95,7 +95,7 @@
 
 % Problem 1.6
 \begin{problem}
-  If $X$ is inductive, then $A = \{x \in X : x \text{is transitive and every nonempty } z \subset x \text{has an $\in$-minimal element}\}$ is inductive.
+  If $X$ is inductive, then $A = \{x \in X : x \text{ is transitive and every nonempty } z \subset x \text{ has an $\in$-minimal element}\}$ is inductive.
 \end{problem}
 
 \begin{solution}
@@ -118,3 +118,130 @@
   Hence, $s$ is $\in$-minimal in $x \cup \{x\}$ and in any subset of $x \cup \{x\}$.
 \end{solution}
 
+% Problem 1.7
+\begin{problem}
+  Every nonempty $X \subset N$ has an $\in$-minimal element.
+\end{problem}
+
+\begin{solution}
+  Similar to before, $X = \{x \in X : x \text{ is transitive and every nonempty } z \subset x \text{ has an $\in$-minimal element}\} \subset N$ and, by exercise 1.6 we have $N \subset X$, hence $N = X$.
+  So any nonempty subset of $N$ has an $\in$-minimal element.
+\end{solution}
+
+% Problem 1.9
+\setcounter{problem}{8}
+\begin{problem}[Induction]
+  Let $A$ be a subset of $N$ such that $\emptyset \in A$, and if $n \in A$ then $n + 1 \in A$.
+  Then $A = N$.
+\end{problem}
+
+\begin{solution}
+  Clearly $A$ is inductive by it's definition.
+  Thus we have $A \subset N$ and $N \subset A$.
+  Hence $A = N$.
+\end{solution}
+
+% Problem 1.10
+\begin{problem}
+  Each $n \in N$ is T-finite.
+\end{problem}
+
+\begin{solution}
+  We need to show that for each $n \in N$, every nonempty $X \subset P(n)$ has an $\subset$-maximal element.
+  We shall show this by induction.
+  Trivially, the assertion holds for $0$.
+  Assume now that it holds for some $n \in N$.
+  Consider a subset $X \in P(n + 1)$.
+  If $n + 1 \in X$, then it is clear that $n + 1$ is a $\subset$-maximal element.
+
+  Otherwise, if there is an $S \in X$ such that $n \in S$ pick the $S \in X$ with the maximal cardinality (need not be unique).
+  We claim that this $S$ is $\subset$-maximal.
+  If there was some $V \neq S$ such that $S \subset V$, this would contradict the fact that if $S \subset V$ then $|S| \le |V|$ with equality holding for finite sets only if $S = V$.
+
+  If there is no $S \in X$ such that $n \in S$ then $X$ is a nonempty subset of $P(n)$, which by our assumption has an $\subset$-maximal element.
+
+  Thus, by induction, every $n \in N$ is T-finite.
+\end{solution}
+
+% Problem 1.11
+\begin{problem}
+  $N$ is T-infinite; the set $N \subset P(N)$ has no $\subset$-maximal element.
+\end{problem}
+
+\begin{solution}
+  Imagine there was some $n \in N$ that was $\subset$-maximal.
+  Since $N$ is inductive, $n \cup \{n\} \in N$.
+  However, $n \subset n \cup \{n\}$, a contradiction.
+\end{solution}
+
+% Problem 1.12
+\begin{problem}
+  Every finite set is T-finite.
+\end{problem}
+
+\begin{solution}
+  Assume the opposite, let $S$ be a finite set that is T-infinite.
+  That means there exists an $X \subset P(S)$ such that for every $u \in X$ there exists a $v \in X$ such that $v \neq u$.
+  Notice that since $P(S)$ is finite, $X$ must also be finite.
+  Let $X$ have $n$ elements.
+  We can pick some $v_1 \in X$.
+  There exists a $v_2 \in X$ such that $v_1 \neq v_2$ and $v_1 \subset v_2$.
+  Similarly there must be some $v_3$ such that $v_2 \neq v_3$ and $v_2 \subset v_3$.
+  Notice that $v_1 \subset v_3$ and $v_1 \neq v_3$, otherwise $v_1 \subset v_2 \subset v_3$ would imply $v_1 = v_2 = v_3$, which contradicts our choice of $v_i$.
+  We can continue like this until we have $v_1 \subset v_2 \ldots \subset v_n$, where $v_1 \neq \dots \neq v_n$.
+  Since $v_n \in X$, there is some $v_{n + 1}$ such that $v_n \subset v_{n + 1}$ and $v_n \neq v_{n + 1}$.
+  By the above reasoning we know that $v_{n + 1} \neq v_i$ for any previous $i$.
+  This would mean that $X$ has $n + 1$ distinct elements, which contradicts our assumption.
+  The theorem follows from this contradiction.
+\end{solution}
+
+% Problem 1.13
+\begin{problem}
+  Every infinite set is T-infinite.
+\end{problem}
+
+\begin{solution}
+  Let $A$ be an infinite set.
+  Consider $X = \{u \in A : u \text{ is finite}\}$.
+  It is clear that $X$ is a nonempty subset of $P(A)$.
+  As it contains every singleton subset of $A$ it is clear that $X$ is infinite.
+  We shall now show that no element of $X$ is $\subset$-maximal.
+  Let $u \in X$ and let $\alpha \in A$ such that $\alpha \notin u$ (since $u$ is finite such an element must exist).
+  Clearly $\{\alpha\} \in X$.
+  Consider the set $u \cup \{\alpha\}$, we see that it belongs to $X$ as it is a union of two finite sets.
+  It is also clear that $u \subset u \cup \{\alpha\}$, hence $u$ is not $\subset$-maximal.
+  Since our choice of $u$ was arbitrary, no element of $X$ is $\subset$-maximal.
+  Thus $A$ is T-infinite.
+\end{solution}
+
+% Problem 1.14
+\begin{problem}
+  The Separation Axioms follow from the Replacement Schema.
+\end{problem}
+
+\begin{solution}
+  Let $X$ be a set and $\varphi(x, p)$ be a property.
+  We wish to show that there exists a set $Y = \{u \in X : \varphi(x, p)\}$.
+  We shall define a function $F = \{(x, x) : \varphi(x, p)\}$.
+  Since $X$ is a set, by replacement $F(X) = \{F(x) : x \in X\}$ is a set.
+  By the definition of our function $F(X)$ is precisely $F(x) = x$ if and only if $\varphi(x, p)$, so clearly $F(X) = \{x \in X : \varphi(x, p)\}$ is a set.
+\end{solution}
+
+% Problem 1.15
+\begin{problem}
+  Instead of Union, Power Set, and Replacement Axioms consider the following weaker versions:
+  \begin{enumerate}
+    \item $\forall X \exists Y \bigcup X \subset Y$     i.e., $\forall X \exists Y (\forall x \in X) (\forall u \in x) u \in Y$;
+    \item $\forall X \exists Y P(X) \subset Y$;     i.e., $\forall X \exists Y \forall u (u \subset X \Rightarrow u \in Y)$;
+    \item If a class $F$ is a function, then $\forall X \exists Y F(X) \subset Y$.
+  \end{enumerate}
+  Then axioms 1.4., 1.5., and 1.7. can be proved from (1.), (2.), and (3.), using the Separation Schema.
+\end{problem}
+
+\begin{solution}
+  We simply specify the subset of $Y$ equal to our desired axiom.
+
+  For example let us assume $\forall X \exists Y (\forall x \in X) (\forall u \in x) u \in Y$.
+  Let $\bigcup X = \{u \in Y : \exists z (z \in X \wedge u \in z)\}$, hence we have the union axiom.
+  The other axioms follow mutatis mutandis.
+\end{solution}
