@@ -1,1 +1,120 @@
-\section{Spaces}
+\section{Axioms of Set Theory}
+
+% Problem 1.1
+\begin{problem}
+  Verify $(a, b) = (c, d) \Leftrightarrow a = c and b = d$.
+\end{problem}
+
+\begin{solution}
+  First we will show that $(a, b) = (c, d) \Rightarrow a = c \wedge b = d$.
+  From definition, we have $\{\{a\}, \{a, b\}\} = \{\{c\}, \{c, d\}\}$.
+  By extensionality we have $\{a\} = \{c\} \wedge \{a, b\} = \{c, d\}$ or $\{a\} = \{c, d\} \wedge \{a, b\} = \{c\}$.
+
+  In the first case, by extensionality we have $a = c$ and $\{a, b\} = \{a, d\}$.
+  Again, we have either $a = a \wedge b = d$ or $a = d \wedge b = a$.
+  In both cases it follows that $a = c$ and $b = d$.
+
+  If $\{a\} = \{c, d\}$ and $\{a, b\} = \{c\}$, by extensionality, we know that $a = c = d$ and $c = a = b$, hence again we have $a = c$ and $b = d$.
+
+  The converse follows directly from extensionality.
+\end{solution}
+
+% Problem 1.2
+\begin{problem}
+  There is no set $X$ such that $P(X) \subset X$.
+\end{problem}
+
+\begin{solution}
+  If we had $P(X) \subset X$ then for any $x \in P(X)$ it follows that $x \in X$.
+  However since $X \in P(X)$ we would have $X \in X$, contradicting the axiom of regularity.
+\end{solution}
+
+% Problem 1.3
+\begin{problem}
+  If $X$ is inductive, then the set $\{x \in X : x \subset X\}$ is inductive.
+  Hence $N$ is transitive, and for each $n$, $n = \{m \in N : m < n\}$.
+\end{problem}
+
+\begin{solution}
+  Let $A = \{x \in X : x \subset X\}$.
+  We wish to show that for every $x \in A$, $x \cup \{x\} \in A$.
+  Since we know $x \in A$ it follows from the definition of $A$ that $x \subset X$ and $x \in X$.
+  Hence, $x \cup \{x\} \subset X$ and thus $x \cup \{x\} \in A$.
+  Trivially we see that the empty set is in $A$.
+  Thus $A$ is inductive
+
+  Since $N$ is inductive we can construct an inductive, transitive set $A$ such that $A \subset N$ by the above.
+  However, by definition, $N \subset A$ since $A$ is an inductive set.
+  Thus we have $N = A$ and $N$ must thus be transitive.
+\end{solution}
+
+% Problem 1.4
+\begin{problem}
+  If $X$ is inductive, then the set $\{x \in X : x \text{is transitive}\}$ is inductive.
+  Hence every $n \in N$ is transitive.
+\end{problem}
+
+\begin{solution}
+  Note that the empty set is transitive, hence $\emptyset \in A$.
+  For any $x \in A$ we want to show that $x \cup \{x\} \in A$.
+  In other words for any transitive $x \in X$ we wish to show that $x \cup \{x\}$ is also transitive.
+  If $t \in x \cup \{x\}$ then $t \in x$ or $t \in \{x\}$.
+  If $t \in x$ we know $t \subset x \subset x \cup \{x\}$.
+  If $t \in \{x\}$ then by extensionality we know $t = x$, hence $t \subset x \cup \{x\}$.
+  Thus $x \cup \{x\}$ is transitive.
+
+  Similarly to before, from $A \subset N$ and $N \subset A$ we have $N = A$, hence for any $n \in N$ we know that $n$ is transitive.
+\end{solution}
+
+% Problem 1.5
+\begin{problem}
+  If $X$ is inductive, then the set $\{x \in X : x \text{is transitive and} x \notin x\}$ is inductive.
+  Hence $n \notin n$ and $n \neq n + 1$ for each $n \in N$.
+\end{problem}
+
+\begin{solution}
+  We can use the axiom of regularity to trivially get $x \notin x$ for any set $x$.
+
+  If we don't wish to use the axiom of regularity we can do the following.
+  Let $X$ be inductive and let $A$ be the subset of $X$ in the problem.
+  Trivially $\emptyset \in A$.
+  Let us now assume that $z \in A$, so $z$ is transitive and $z \notin z$.
+  We will show that $z \cup \{z\}$ is also in $A$.
+  Since $X$ is inductive and $z \in X$, we know that $z \cup \{z\} \in X$.
+  By the same arguement as in problem 1.4, $z \cup \{z\}$ is transitive.
+  We just need to show that $z \cup \{z\} \notin z \cup \{z\}$.
+  Assume the opposite, let $z \cup \{z\} \notin z \cup \{z\}$.
+  That means that $z \cup \{z\} \in z$ or $z \cup \{z\} \in \{z\}$.
+  In the first case , by transitivity of $z$, we know that $z \cup \{z\} \subset z$, however clearly $z \subset z \cup \{z\}$, so we have $z = z \cup \{z\}$.
+  This implies that $\{z\} \subset z$, so $z \in z$, contradicting our assumption that $z \in A$.
+  On the other hand, if $z \cup \{z\} \in \{z\}$, then by extensionality $z \cup \{z\} = z$, which is, again, a contradiction.
+  Thus $A$ is inductive.
+
+  Again we can make the argument that $A = N$, so for every $n$ we have $n \notin n$ and $n \neq n + 1$, as that implies $n = n \cup \{n\}$ and $n \in n$.
+\end{solution}
+
+% Problem 1.6
+\begin{problem}
+  If $X$ is inductive, then $A = \{x \in X : x \text{is transitive and every nonempty } z \subset x \text{has an $\in$-minimal element}\}$ is inductive.
+\end{problem}
+
+\begin{solution}
+  Again, it is easy to see $\emptyset \in A$ and for every $x \in A$ we know $x \cup \{x\}$ is transitive.
+
+  Assume that $x \in A$ and that every nonempty $z \subset x$ has an $\in$-minimal element.
+  We shall show that $x \cup \{x\}$ also has an $\in$-minimal element for every nonempty subset.
+  Assume the contrary, there exists some $z \subset x \cup \{x\}$ such that $z$ has no $\in$-minimal element.
+  It is clear that $x \in z$, otherwise $z \subset x$, contradicting our assumption.
+  By definition of $z$, $x$ cannot be an $\in$-minimal element, so there exists an $s \in z$ such that $s \in x$.
+  By transitivity of $x$, $s \subset x$, hence $s$ is $\in$-minimal in $x$ or $s = \emptyset$.
+
+  If $s = \emptyset$, then $\emptyset \in z$, hence $z$ has an $\in$-minimal element, as $\emptyset$ is $\in$-minimal in every set.
+
+  If $s$ is $\in$-minimal in $x$ then there is no $t \in x$ such that $t \in s$.
+  We wish to show that $s$ is also $\in$-minimal in $x \cup \{x\}$
+  Since we assumed that there is no $t \in x$ such that $t \in s$, all that is left to consider is $t = x$.
+  If we had $t = x \in s$ then since $s \subset x$ we know that $x \in x$.
+  Thus $\{x\} \subset x$, is a nonempty subset of $x$ that has no $\in$-minimal element in $x$, as $x \in \{x\}$ and $x \in x$.
+  Hence, $s$ is $\in$-minimal in $x \cup \{x\}$ and in any subset of $x \cup \{x\}$.
+\end{solution}
+
