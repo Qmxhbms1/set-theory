@@ -1,0 +1,114 @@
+\section{Ordinal Arithmetic}
+
+% Problem 2.1
+\begin{problem}
+  The relation "$(P, <)$ is isomorphic to $(Q, <)$" is an equivalence relation (on the class of all partially ordered sets).
+\end{problem}
+
+\begin{solution}
+  To show that this relation is an equivalence relation we just need to show that it is reflexive, symmetric and transitive.
+  \begin{enumerate}
+    \item Reflexivity: Every partially ordered set is isomorphic to itself by the identity function.
+    \item Symmetry: By the definition of an isomorphism, it follows that the existence of an isomorphism from $(P, <)$ to $(Q, <)$ implies the existence of an isomorphism from $(Q, <)$ to $(P, <)$.
+    \item Transitivity: Let $f : (P, <) \rightarrow (Q, <)$ and $g : (Q, <) \rightarrow (R, <)$ be isomorphisms.
+      Then the composition $g \circ f$ is an isomorphism from $(P, <)$ to $(R, <)$.
+  \end{enumerate}
+\end{solution}
+
+% Problem 2.2
+\begin{problem}
+  $\alpha$ is a limit ordinal if and only if $\beta < \alpha$ implies $\beta + 1 < \alpha$, for every $\beta$.
+\end{problem}
+
+\begin{solution}
+  Let $\alpha$ be a limit ordinal and $\beta < \alpha$.
+  We know $\alpha \neq \beta + 1$ since $\alpha$ isn't a successor ordinal.
+  By trichotomy, either $\alpha < \beta + 1$ or $\alpha > \beta + 1$.
+  If we had $\beta < \alpha$ and $\beta + 1 > \alpha$ then $\alpha$ would be between $\beta$ and $\beta + 1$ in the total ordering, contradicting that $\beta + 1$ is the least ordinal greater than $\beta$.
+
+  Conversely, let $\alpha$ be an ordinal such that $\beta < \alpha$ implies $\beta + 1 < \alpha$, for every $\beta$.
+  Assume that $\alpha$ is a successor ordinal, let $\alpha = \gamma + 1$.
+  Clearly $\alpha > \gamma$, so $\alpha > \gamma + 1$, a contradiction.
+\end{solution}
+
+% Problem 2.3
+\begin{problem}
+  If a set $X$ is inductive, then $X \cap Ord$ is inductive.
+  The set $\N = \bigcap \{X : X \text{ is inductive}\}$ is the least limit ordinal $\neq 0$.
+\end{problem}
+
+\begin{solution}
+  Since $X$ is inductive $\emptyset \in X$, so $\emptyset \in X \cap Ord$.
+  If $x \in X \cap Ord$ then $x \in X$ and $x \in Ord$.
+  Since $X$ is inductive $x \cup \{x\} \in X$, and clearly $x \cup \{x\} \in Ord$, hence $x \cup \{x\} \in X \cap Ord$.
+  Thus $X \cap Ord$ is inductive.
+
+  Let $\omega$ be the least non-zero limit ordinal.
+  Clearly, $\omega$ is inductive since $0 \in \omega$ and for any $\alpha < \omega$, $\alpha + 1 < \omega$.
+  Hence $\N \subset \omega$.
+  Note that $\N$ is inductive since $0 \in \N$ for any $x \in \N$, $x \in X$ for every inductive set $X$, so $x + 1 \in X$ and $x + 1 \in \N$.
+  Let $x \in \omega$.
+  Either $x = 0$ or $x = \alpha + 1$ for some $\alpha$.
+  Clearly $0 \in \N$ and if $\alpha \in \N$ then $\alpha + 1 \in \N$.
+  By induction $\omega = \N$.
+\end{solution}
+
+% Problem 2.4
+\begin{problem}
+  (Without the Axiom of Infinity).
+  Let $\omega =$ least limit $\alpha \neq 0$ if it exists, $\omega = Ord$ otherwise.
+  Prove that the following statements are equivalent:
+  \begin{enumerate}[label=(\roman*)]
+    \item There exists an inductive set.
+    \item There exists an infinite set.
+    \item $\omega$ is a set.
+  \end{enumerate}
+\end{problem}
+
+\begin{solution}
+  (i) $\rightarrow$ (ii).
+  Let there be an inductive set $X$.
+  By exercise 2.3 we know that the least non-zero limit ordinal is a subset of $X$.
+  Then by the subset axioms we know that $\omega$ is a set.
+  Clearly $\omega$ is an infinite set by exercise 1.13, since it is trivially T-infinite.
+
+  (ii) $\rightarrow$ (iii)
+  Let $X$ be an infinite set.
+  By the Powerset Axiom, $P(X)$ is a set.
+  By the subset axioms the set of all finite subsets of $X$ is a set.
+  Let $F$ be a function mapping each finite subset to the $n \in \omega$ such that there is a bijection from the finite subset to $n$ (since the subsets are finite this $n$ exists by definition).
+  Note that the range of $F$ is precisely the least non-zero limit ordinal.
+  Thus, by the replacement axioms we see that $\omega$ is a set.
+
+  (iii) $\rightarrow$ (i)
+  Let $\omega$ be a set, i.e., $\omega$ is the least non-zero limit ordinal (since $Ord$ is not a set).
+  By our discussion in exercise 2.3, $\omega$ is an inductive set.
+\end{solution}
+
+% Problem 2.5
+\begin{problem}
+  If $W$ is a well-ordered set, then there exists no sequence $\langle a_n : n \in \N \rangle$ in $W$ such that $a_0 > a_1 > a_2 > \ldots$.
+\end{problem}
+
+\begin{solution}
+  Let $\langle a_n : n \in \N \rangle$ be such a sequence.
+  Clearly $\langle a_n : n \in \N \rangle \subset W$, hence it must have a least element by the well-ordering of $W$.
+  However, let $a_n$ be the least element.
+  Then $a_n > a_{n + 1}$ by definition, a contradiction.
+\end{solution}
+
+% Problem 2.6
+\begin{problem}
+  There are arbitrarily large limit ordinals; i.e., $\forall \alpha \exists \beta > \alpha (\beta \text{ is a limit})$.
+\end{problem}
+
+\begin{solution}
+  For a given $\alpha$ consider the sequence defined by $\alpha_{n + 1} = \alpha_n + 1$ and $\alpha_0 = \alpha$.
+  Let $\beta = \lim_{n \to \omega} \alpha_n$, i.e., $\beta = \sup \{\alpha_{\xi} : \xi < \omega\}$ (by the union axioms $\beta$ exists).
+  If $\beta = \gamma + 1$ for some $\gamma$ then $\gamma \in \{\alpha_{\xi} : \xi < \omega\}$, hence $\gamma = \alpha_{\eta}$, for some $\eta < \omega$.
+  However, then $\alpha_{\eta + 1} = \beta$ and $\alpha_{\eta + 2} \notin \{\alpha_{\xi} : \xi < \omega\}$.
+  Hence $\eta + 1 = \omega$, a contradiction.
+  Thus $\beta$ is a limit ordinal greater than $\alpha$.
+  Since $\alpha$ was arbitrary, $\beta$ can be arbitrarily large.
+\end{solution}
+
