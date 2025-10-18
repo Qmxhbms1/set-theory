@@ -1,0 +1,18 @@
+\section{Cardinal Numbers}
+
+\begin{problem}
+  Show that $\Gamma (\alpha \times \alpha) \le \omega^{\alpha}$.
+\end{problem}
+
+\begin{solution}
+  We will use induction.
+  The claim trivially holds for $0$.
+  If the theorem holds for $\alpha$, we will consider $\alpha + 1$.
+  We have $\Gamma(\alpha + 1 \times \alpha + 1) = \Gamma(\alpha \times \alpha) + \alpha \cdot 2 + 1$, as we know that the amount of pairs with $max(\xi, \eta) = \alpha$ is $\alpha + \alpha + 1$.
+  By the inductive hypothesis and using the easily proven fact that $1 \le \alpha \le \omega^{\alpha}$ we get
+  \[\Gamma(\alpha + 1 \times \alpha + 1) \le \omega^{\alpha} + \omega^{\alpha} + \omega^{\alpha} + \omega^{\alpha} = \omega^{\alpha} \cdot 4 < \omega^{\alpha} \cdot \omega = \omega^{\alpha + 1}.\]
+  Thus we have proven the induction on the successor ordinals.
+  If $\alpha$ is a limit ordinal and we assume the statement holds for all preceding ordinals then by continuity of $\Gamma$ we have
+  \[\Gamma(\alpha \times \alpha) = \bigcup \Gamma(\beta \times \beta) \le \bigcup \omega^{\beta} = \omega^{\alpha}.\]
+  This concludes the proof.
+\end{solution}
