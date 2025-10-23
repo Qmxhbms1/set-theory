@@ -1,5 +1,7 @@
 \section{Cardinal Numbers}
 
+% Problem 3.5
+\setcounter{problem}{4}
 \begin{problem}
   Show that $\Gamma (\alpha \times \alpha) \le \omega^{\alpha}$.
 \end{problem}
@@ -15,4 +17,28 @@
   If $\alpha$ is a limit ordinal and we assume the statement holds for all preceding ordinals then by continuity of $\Gamma$ we have
   \[\Gamma(\alpha \times \alpha) = \bigcup \Gamma(\beta \times \beta) \le \bigcup \omega^{\beta} = \omega^{\alpha}.\]
   This concludes the proof.
+\end{solution}
+
+% Problem 3.6
+\begin{problem}
+  There is a well-ordering of the class of all finite sequences of ordinals such that for each $\alpha$, the set of all finite sequences in $\omega_{\alpha}$ is an initial segment and its order-type is $\omega_{\alpha}$.
+\end{problem}
+
+\begin{solution}
+  Consider the following well-ordering:
+
+  Let $\{\alpha_i\}$ and $\{\beta_j\}$ be two finite sequences with $i = 0, 1, \ldots, n$ and $j = 0, 1, \ldots, m$, for some finite numbers $n, m$.
+  First we define the function $f : Ord^{<\omega} \to Ord$ by $f(s_i) = \sum s_i + n$, where $n$ is the length of the sequence $s_i$.
+  We will say that $\{\alpha_i\} < \{\beta_i\}$ if:
+  \begin{enumerate}[label=(\alph*)]
+    \item $f(\alpha_i) < f(\beta_i)$;
+    \item $f(\alpha_i) = f(\beta_i)$, and $\alpha_i$ preceds $\beta_i$ in the lexicographical ordering.
+  \end{enumerate}
+
+  The fact that this is a well-ordering follows from $f$ being a function defined on $Ord$, which is well-ordered and the fact that the lexicographical ordering is a well-ordering.
+  If we had a sequence $s$ which contains an ordinal greater than $\omega_{\alpha}$, then we would have $f(s) = \sum s_i + n > \omega_{\alpha} + n$.
+  On the other hand, any sequence $t$ in $\omega_{\alpha}^{<\omega}$ must have $f(t) < \omega_{\alpha}$, because $\omega_{\alpha}$ is a limit ordinal and thus it cannot be reached with a finite sum.
+  Since the cardinality of the set $\omega_{\alpha}^{<\omega}$ is $\aleph_{\alpha}$, it follows that the order-type of any ordering must be at least $\omega_{\alpha}$.
+  It is quite clear that any initial segment $s$ of $\omega_{\alpha}^{<\omega}$ must have an order-type of less than $\omega_{\alpha}$ because $|s| < |\omega_{\alpha}^{<\omega}| = \aleph_{\alpha}$.
+  Using the fact that the order-type of a well-ordered set $\{K, <\} = \omega_{\alpha}$ if $|K| = \aleph_{\alpha}$ and every initial segment of $K$ has an order-type of less than $\omega_{\alpha}$ we get that the order-type of $\omega_{\alpha}^{<\omega}$ is $\omega_{\alpha}$ and we are done.
 \end{solution}
