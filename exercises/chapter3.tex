@@ -42,3 +42,35 @@
   It is quite clear that any initial segment $s$ of $\omega_{\alpha}^{<\omega}$ must have an order-type of less than $\omega_{\alpha}$ because $|s| < |\omega_{\alpha}^{<\omega}| = \aleph_{\alpha}$.
   Using the fact that the order-type of a well-ordered set $\{K, <\} = \omega_{\alpha}$ if $|K| = \aleph_{\alpha}$ and every initial segment of $K$ has an order-type of less than $\omega_{\alpha}$ we get that the order-type of $\omega_{\alpha}^{<\omega}$ is $\omega_{\alpha}$ and we are done.
 \end{solution}
+
+% Problem 3.7
+\begin{problem}
+  If $B$ is a projection of $\omega_{\alpha}$, then $|B| \le \aleph_{\alpha}$.
+\end{problem}
+
+\begin{solution}
+  Let $f$ be a mapping of $\omega_{\alpha}$ onto $B$.
+  Let us consider the quotient set of $\omega_{\alpha}$ consisting of equivalence classes defined by $f(x) = f(y)$.
+  Since the equivalence classes are sets of ordinals, it follows that there is a least ordinal for each equivalence class, pick it as the representative.
+  Now we have a set $K \subset \omega_{\alpha}$ of all representatives of the equivalence classes.
+  It is obvious that the restriction of $f$ to $K$ is a bijection by construction.
+  Thus we have $|K| = |B|$.
+  Since $K \subset \omega_{\alpha}$ it follows that $|B| = |K| \le \aleph_{\alpha}$.
+\end{solution}
+
+% Problem 3.8
+\begin{problem}
+  The set of all finite subsets of $\omega_{\alpha}$ has cardinality $\aleph_{\alpha}$.
+\end{problem}
+
+\begin{solution}
+  Since the set of all finite subsets contains all singleton sets, there is a very natural injection from $\omega_{\alpha}$ to $\omega_{\alpha}^{<\omega}$ defined by $f(x) = \{x\}$.
+  Thus $|\omega_{\alpha}^{<\omega}| \ge \aleph_{\alpha}$.
+  We can write $|\omega_{\alpha}^{<\omega}| = |P_1 (\omega_{\alpha})| + |P_2 \omega_{\alpha}| + \ldots$, since these are all disjoint sets.
+  All of these sets will have cardinality $\aleph_{\alpha}$, as we can easily define an injection from $P_n (\omega_{\alpha})$ to $\aleph_{\alpha}^{n}$, simply let $f(S) = (x_1, x_2, \ldots)$, where $S = \{x_1, \ldots\}$ and we order it using the well ordering of the ordinals so that $x_1 < x_2 < \ldots$.
+  Since we know that $\aleph_{\alpha} \cdot \aleph_{\alpha} = \aleph_{\alpha}$ we end up with
+  \[\omega_{\alpha}^{<\omega}| = |\aleph_{\alpha}| \cdot \omega.\]
+  Finally, since $|\omega| = \aleph_0$ and $\aleph_{\alpha} \cdot \aleph_{\beta} = \max (\aleph_{\alpha}, \aleph_{\beta})$ we get
+  \[|\omega_{\alpha}^{<\omega}| = \aleph_{\alpha}.\]
+\end{solution}
+
