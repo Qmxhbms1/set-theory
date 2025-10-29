@@ -74,3 +74,33 @@
   \[|\omega_{\alpha}^{<\omega}| = \aleph_{\alpha}.\]
 \end{solution}
 
+% Problem 3.9
+\begin{problem}
+  If $B$ is a projection of $A$, then $|P(B)| \le |P(A)|$.
+\end{problem}
+
+\begin{solution}
+  Let $f$ be a function from $A$ onto $B$.
+  Consider the function $g: P(B) \to P(A)$ defined as $g(X) = f^{-1} (X)$.
+  This function is well-defined because every subset of $B$ has a unique inverse image.
+  Let $X, Y \in P(B)$ be such that $g(X) = g(Y)$.
+  This trivially follows from the fact that $f$ is a surjective function.
+  For any $x \in X$ there exists some $a \in A$ such that $f(a) = x$.
+  The set of all such $a \in A$ forms the set $S = g(X)$.
+  However, it also forms the set $g(Y)$, meaning that both $X$ and $Y$ are images of the set $S$.
+  Since the image of a function is unique it follows that $X = Y$ and thus $g$ is injective.
+  From there $|P(B)| \le |P(A)|$.
+\end{solution}
+
+% Problem 3.10
+\begin{problem}
+  $\omega_{\alpha + 1}$ is a projection of $P(\omega_{\alpha})$.
+\end{problem}
+
+\begin{solution}
+  From Theorem 3.5 we know that there exists a bijection from $\omega_{\alpha} \times \omega_{\alpha}$ to $\omega_{\alpha}$.
+  This implies that there is a bijection from $P(\omega_{\alpha} \times \omega_{\alpha})$ to $P(\omega_{\alpha})$.
+  Thus if we find that $\omega_{\alpha + 1}$ is a projection of $P(\omega_{\alpha} \times \omega_{\alpha})$, by composition it follows that it is also a projection of $P(\omega_{\alpha})$.
+  We define the function $f : P(\omega_{\alpha} \times \omega_{\alpha}) \to \omega_{\alpha + 1}$ by putting $f(X) = $ the order-type of $X$ under the ordering by inclusion.
+% Not finished
+\end{solution}
