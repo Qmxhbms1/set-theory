@@ -101,6 +101,33 @@
   From Theorem 3.5 we know that there exists a bijection from $\omega_{\alpha} \times \omega_{\alpha}$ to $\omega_{\alpha}$.
   This implies that there is a bijection from $P(\omega_{\alpha} \times \omega_{\alpha})$ to $P(\omega_{\alpha})$.
   Thus if we find that $\omega_{\alpha + 1}$ is a projection of $P(\omega_{\alpha} \times \omega_{\alpha})$, by composition it follows that it is also a projection of $P(\omega_{\alpha})$.
-  We define the function $f : P(\omega_{\alpha} \times \omega_{\alpha}) \to \omega_{\alpha + 1}$ by putting $f(X) = $ the order-type of $X$ under the ordering by inclusion.
-% Not finished
+  Let $R \subset \omega_{\alpha} \times \omega_{\alpha}$ be a well-ordering and let $f(R)$ be its order-type.
+  We claim that this $f$ is a surjective mapping onto $\omega_{\alpha + 1}$.
+  It is trivial to see that for any $\xi < \omega_{\alpha}$ we can find an $X$ such that $f(X) = \xi$ by just considering the canonical well-ordering of the ordinals.
+  % Not finished, come back to at some point
+\end{solution}
+
+% Problem 3.11 requires the previous problem
+
+% Problem 3.12
+\setcounter{problem}{11}
+\begin{problem}
+  If $\aleph_{\alpha}$ is an uncountable limit cardinal, then $cf \omega_{\alpha} = cf \alpha$; $\omega_{\alpha}$ is the limit of a cofinal sequence $\langle \omega_{\xi} : \xi < cf \alpha \rangle$ of cardinals.
+\end{problem}
+
+\begin{solution}
+  By the definition of cofinality, there exists some increasing, cofinal sequence $\langle \alpha_{\eta} : \eta < cf \alpha \rangle$.
+  We consider the sequence $\langle \omega_{\alpha_{\eta}} : \eta < cf \alpha \rangle$.
+  Clearly this sequence will also be increasing by the definition of the alephs.
+  By the choice of our sequence, the limit will be $\omega_{\alpha}$ and we have shown that $cf \omega_{\alpha} \ge cf \alpha$.
+
+  To show the converse, take an increasing, cofinal sequence $\langle \omega_{\xi} : \xi < cf \omega_{\alpha} \rangle$.
+  We consider the cardinality of each of these $\omega_{\xi}$.
+  By the definition of cardinals, it follows that $\aleph_{xi} < \aleph_{\alpha}$, so we can write $\aleph_{\xi} = \aleph_{\beta_{\eta}}$ for some ordinal $\beta_{\eta} < \alpha$.
+  We claim that the sequence $\langle \beta_{\eta} : \eta < cf \omega_{\alpha} \rangle$ is cofinal in $\alpha$.
+  Trivially this is an increasing sequence since it stems from the increasing sequence of $\omega_{xi}$.
+  We've also established already that $\alpha$ is an upper bound of this sequence.
+  If there was some $\gamma < \alpha$ which was also an upper bound then the supremum of $\omega_{\beta{\eta}} : \eta < cf \omega_{\alpha}$ would be $\omega_{\gamma}$, contradicting that this sequences is cofinal in $\omega_{\alpha}$.
+  From there, the theorem follows.
+  % I'm fairly certain I just made up half the second part out of thin air and that non of it actually holds
 \end{solution}
