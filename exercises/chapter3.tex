@@ -109,25 +109,50 @@
 
 % Problem 3.11 requires the previous problem
 
-% Problem 3.12
-\setcounter{problem}{11}
+% % Problem 3.12
+% \setcounter{problem}{11}
+% \begin{problem}
+%   If $\aleph_{\alpha}$ is an uncountable limit cardinal, then $cf \omega_{\alpha} = cf \alpha$; $\omega_{\alpha}$ is the limit of a cofinal sequence $\langle \omega_{\xi} : \xi < cf \alpha \rangle$ of cardinals.
+% \end{problem}
+%
+% \begin{solution}
+%   By the definition of cofinality, there exists some increasing, cofinal sequence $\langle \alpha_{\eta} : \eta < cf \alpha \rangle$.
+%   We consider the sequence $\langle \omega_{\alpha_{\eta}} : \eta < cf \alpha \rangle$.
+%   Clearly this sequence will also be increasing by the definition of the alephs.
+%   By the choice of our sequence, the limit will be $\omega_{\alpha}$ and we have shown that $cf \omega_{\alpha} \ge cf \alpha$.
+%
+%   To show the converse, take an increasing, cofinal sequence $\langle \omega_{\xi} : \xi < cf \omega_{\alpha} \rangle$.
+%   We consider the cardinality of each of these $\omega_{\xi}$.
+%   By the definition of cardinals, it follows that $\aleph_{xi} < \aleph_{\alpha}$, so we can write $\aleph_{\xi} = \aleph_{\beta_{\eta}}$ for some ordinal $\beta_{\eta} < \alpha$.
+%   We claim that the sequence $\langle \beta_{\eta} : \eta < cf \omega_{\alpha} \rangle$ is cofinal in $\alpha$.
+%   Trivially this is an increasing sequence since it stems from the increasing sequence of $\omega_{xi}$.
+%   We've also established already that $\alpha$ is an upper bound of this sequence.
+%   If there was some $\gamma < \alpha$ which was also an upper bound then the supremum of $\omega_{\beta{\eta}} : \eta < cf \omega_{\alpha}$ would be $\omega_{\gamma}$, contradicting that this sequences is cofinal in $\omega_{\alpha}$.
+%   From there, the theorem follows.
+% \end{solution}
+
+% Problem 3.15
+\setcounter{problem}{14}
 \begin{problem}
-  If $\aleph_{\alpha}$ is an uncountable limit cardinal, then $cf \omega_{\alpha} = cf \alpha$; $\omega_{\alpha}$ is the limit of a cofinal sequence $\langle \omega_{\xi} : \xi < cf \alpha \rangle$ of cardinals.
+  \begin{enumerate}[label=(\roman*)]
+    \item If $A$ and $B$ are D-finite, then $A \cup B$ and $A \times B$ are D-finite.
+    \item The set of all finite one-to-one sequences in a D-finite set is D-finite.
+    \item The union of a disjoint D-finite family of D-finite sets is D-finite.
+  \end{enumerate}
 \end{problem}
 
 \begin{solution}
-  By the definition of cofinality, there exists some increasing, cofinal sequence $\langle \alpha_{\eta} : \eta < cf \alpha \rangle$.
-  We consider the sequence $\langle \omega_{\alpha_{\eta}} : \eta < cf \alpha \rangle$.
-  Clearly this sequence will also be increasing by the definition of the alephs.
-  By the choice of our sequence, the limit will be $\omega_{\alpha}$ and we have shown that $cf \omega_{\alpha} \ge cf \alpha$.
-
-  To show the converse, take an increasing, cofinal sequence $\langle \omega_{\xi} : \xi < cf \omega_{\alpha} \rangle$.
-  We consider the cardinality of each of these $\omega_{\xi}$.
-  By the definition of cardinals, it follows that $\aleph_{xi} < \aleph_{\alpha}$, so we can write $\aleph_{\xi} = \aleph_{\beta_{\eta}}$ for some ordinal $\beta_{\eta} < \alpha$.
-  We claim that the sequence $\langle \beta_{\eta} : \eta < cf \omega_{\alpha} \rangle$ is cofinal in $\alpha$.
-  Trivially this is an increasing sequence since it stems from the increasing sequence of $\omega_{xi}$.
-  We've also established already that $\alpha$ is an upper bound of this sequence.
-  If there was some $\gamma < \alpha$ which was also an upper bound then the supremum of $\omega_{\beta{\eta}} : \eta < cf \omega_{\alpha}$ would be $\omega_{\gamma}$, contradicting that this sequences is cofinal in $\omega_{\alpha}$.
-  From there, the theorem follows.
-  % I'm fairly certain I just made up half the second part out of thin air and that non of it actually holds
+  \begin{enumerate}[label=(\roman*)]
+    \item Assume the opposite, let $A \cup B$ be D-infinite.
+      This means that $A \cup B$ have a countable subset $S$, a sequence of elements $\{x_n | n < \omega\}$.
+      Consider the sets $\{x_n \in A | n < \omega\}$ and $\{x_n \in B | n < \omega\}$.
+      Clearly the union of these two sets is $S$, which is countable.
+      If both of these sets were finite, it would follow that $S$ is also finite, hence at least one of them must be infinite, specifically countable (otherwise $S$ would be uncountable).
+      Hence, either $A$ or $B$ have a countable subset which is equivalent to being D-infinite, a contradiction.
+      Similarly for $A \times B$ we consider the projection of our finite subset onto $A$.
+      If this set is infinite, we are done, otherwise there is some $\alpha$ such that $\alpha_n = \alpha$ for countably many $n$.
+      This then implies that there must be countably many distinct $\beta_n$, otherwise we would have $(\alpha_n, \beta_n) = (\alpha_m, \beta_m)$ when $\alpha_m = \alpha_n = \alpha$.
+      Thus it follows that $B$ has a countable subset and is thus D-infinite.
+    \item 
+  \end{enumerate}
 \end{solution}
